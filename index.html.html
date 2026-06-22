@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brocklebank Retail Park — Greenwich, London</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B2140;
+    --navy-mid: #14325A;
+    --blue: #1A6FB5;
+    --blue-bright: #2D8DE8;
+    --gold: #C89C3C;
+    --gold-light: #E8B84B;
+    --cream: #F7F4EF;
+    --text: #1A1A2E;
+    --text-muted: #5A6070;
+    --border: rgba(0,0,0,0.09);
+    --white: #ffffff;
+    --section-bg: #F4F6FA;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announce-bar {
+    background: var(--navy);
+    padding: 13px 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .announce-bar .tag-pill {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .announce-bar p {
+    color: rgba(255,255,255,0.88);
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .announce-bar strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+  .announce-bar .divider {
+    color: rgba(255,255,255,0.25);
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,33,64,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-icon i { color: var(--navy); font-size: 20px; }
+  .nav-logo-text { color: #fff; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .nav-logo-sub { color: rgba(255,255,255,0.45); font-size: 11px; display: block; margin-top: -2px; }
+  .nav-links { display: flex; align-items: center; gap: 0.5rem; }
+  .nav-link {
+    color: rgba(255,255,255,0.65); font-size: 13.5px; font-weight: 400;
+    padding: 8px 14px; border-radius: 6px; border: none;
+    background: none; cursor: pointer; font-family: 'Inter', sans-serif;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .nav-link:hover { color: #fff; background: rgba(255,255,255,0.07); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    font-size: 13px; font-weight: 600; padding: 8px 18px;
+    border-radius: 6px; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; margin-left: 6px;
+    text-decoration: none; transition: background 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 5rem 2.5rem 5.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,141,232,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(200,156,60,0.12) 0%, transparent 60%);
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75); font-size: 12.5px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 7px 18px; border-radius: 40px; margin-bottom: 1.6rem;
+    position: relative;
+  }
+  .hero-eyebrow i { color: var(--gold); font-size: 14px; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 900; color: #fff;
+    line-height: 1.07; letter-spacing: -0.02em;
+    margin-bottom: 1rem; position: relative;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero-desc {
+    font-size: 17px; color: rgba(255,255,255,0.65);
+    max-width: 560px; margin: 0 auto 2rem;
+    line-height: 1.7; position: relative;
+  }
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; margin-bottom: 2.5rem;
+    flex-wrap: wrap; position: relative;
+  }
+  .hero-stars { color: #FAC775; font-size: 20px; letter-spacing: 3px; }
+  .hero-rating { color: #fff; font-size: 20px; font-weight: 600; }
+  .hero-reviews { color: rgba(255,255,255,0.5); font-size: 14px; }
+  .hero-sep { color: rgba(255,255,255,0.2); }
+  .status-open {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(22,197,94,0.12); border: 0.5px solid rgba(22,197,94,0.3);
+    color: #3DDBA5; font-size: 13px; font-weight: 500;
+    padding: 5px 13px; border-radius: 20px;
+  }
+  .status-closed {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(248,113,113,0.12); border: 0.5px solid rgba(248,113,113,0.3);
+    color: #F87171; font-size: 13px; font-weight: 500;
+    padding: 5px 13px; border-radius: 20px;
+  }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-hero-primary {
+    background: var(--gold); color: var(--navy);
+    font-size: 15px; font-weight: 600; padding: 14px 30px;
+    border-radius: 8px; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-hero-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-hero-ghost {
+    background: rgba(255,255,255,0.08); color: #fff;
+    border: 0.5px solid rgba(255,255,255,0.25);
+    font-size: 15px; font-weight: 500; padding: 14px 30px;
+    border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-hero-ghost:hover { background: rgba(255,255,255,0.14); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    border-bottom: 0.5px solid var(--border);
+    background: #fff;
+  }
+  .stat-item {
+    padding: 1.4rem 1.2rem; text-align: center;
+    border-right: 0.5px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    transition: background 0.2s;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-item:hover { background: var(--section-bg); }
+  .stat-icon { font-size: 22px; color: var(--blue); }
+  .stat-val { font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: -0.03em; }
+  .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 400; line-height: 1.3; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 4rem 2.5rem; }
+  .section-alt { background: var(--section-bg); }
+  .section-cream { background: var(--cream); }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 8px; margin-bottom: 0.6rem;
+  }
+  .section-eyebrow::after {
+    content: ''; flex: 0 0 30px; height: 1.5px; background: var(--gold);
+  }
+
+  h2.section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700; color: var(--navy);
+    line-height: 1.2; letter-spacing: -0.02em;
+    margin-bottom: 0.7rem;
+  }
+  p.section-sub {
+    font-size: 16px; color: var(--text-muted); max-width: 560px;
+    margin-bottom: 2.5rem; line-height: 1.7;
+  }
+
+  /* ── STORE DIRECTORY ── */
+  .stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 14px;
+  }
+  .store-card {
+    background: #fff; border: 0.5px solid var(--border);
+    border-radius: 14px; padding: 1.4rem 1.1rem;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px; cursor: pointer; text-align: center;
+    transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .store-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+    transform: scaleX(0); transition: transform 0.25s;
+  }
+  .store-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); border-color: rgba(0,0,0,0.14); }
+  .store-card:hover::before { transform: scaleX(1); }
+  .store-icon-wrap {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .store-name { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.3; }
+  .store-cat { font-size: 12px; color: var(--text-muted); }
+  .store-count { font-size: 11px; font-weight: 600; color: var(--blue); background: rgba(26,111,181,0.08); padding: 2px 8px; border-radius: 20px; }
+
+  /* ── SEARCH BOX ── */
+  .search-wrap { position: relative; max-width: 440px; margin-bottom: 2rem; }
+  .search-wrap input {
+    width: 100%; padding: 13px 20px 13px 46px;
+    border: 1px solid var(--border); border-radius: 10px;
+    font-size: 15px; font-family: 'Inter', sans-serif;
+    background: #fff; color: var(--text);
+    outline: none; transition: border-color 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--blue); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-wrap .search-icon {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    font-size: 18px; color: var(--text-muted); pointer-events: none;
+  }
+
+  /* ── FILTER TABS ── */
+  .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+  .filter-tab {
+    padding: 7px 16px; border-radius: 20px;
+    border: 0.5px solid var(--border); background: #fff;
+    font-size: 13px; font-weight: 500; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+  }
+  .filter-tab:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── AMENITIES ── */
+  .amenities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .amenity-card {
+    background: #fff; border: 0.5px solid var(--border);
+    border-radius: 14px; padding: 1.4rem;
+    display: flex; align-items: flex-start; gap: 14px;
+    transition: all 0.2s;
+  }
+  .amenity-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .amenity-icon-wrap {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(26,111,181,0.08); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .amenity-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .amenity-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── HOURS ── */
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 0.5px solid var(--border); }
+  .hours-table td { padding: 11px 0; font-size: 15px; }
+  .hours-table td:first-child { color: var(--text-muted); width: 140px; }
+  .hours-table td:last-child { font-weight: 500; color: var(--navy); }
+  .hours-table tr.today td { color: var(--navy); font-weight: 600; }
+  .hours-table tr.today td:first-child { color: var(--blue); }
+  .today-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; background: rgba(26,111,181,0.1); color: var(--blue);
+    padding: 2px 7px; border-radius: 4px; margin-left: 8px;
+  }
+
+  /* ── BUSY CHART ── */
+  .busy-chart { display: flex; gap: 8px; align-items: flex-end; height: 100px; }
+  .busy-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .busy-bar { width: 100%; border-radius: 4px 4px 0 0; transition: all 0.3s; cursor: pointer; }
+  .busy-bar:hover { filter: brightness(1.15); }
+  .busy-day-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+
+  /* ── REVIEWS ── */
+  .reviews-header { display: flex; align-items: flex-start; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .review-score-big { text-align: center; }
+  .score-number { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700; color: var(--navy); line-height: 1; }
+  .score-stars { color: #F59E0B; font-size: 22px; letter-spacing: 3px; margin: 6px 0; }
+  .score-count { font-size: 13px; color: var(--text-muted); }
+  .rating-bars { flex: 1; min-width: 200px; }
+  .rating-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+  .rb-label { font-size: 13px; color: var(--text-muted); width: 40px; display: flex; align-items: center; gap: 3px; }
+  .rb-label i { color: #F59E0B; font-size: 12px; }
+  .rb-track { flex: 1; height: 8px; background: rgba(0,0,0,0.07); border-radius: 4px; overflow: hidden; }
+  .rb-fill { height: 100%; border-radius: 4px; background: #F59E0B; }
+  .rb-pct { font-size: 12px; color: var(--text-muted); width: 32px; text-align: right; }
+
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .review-card {
+    background: #fff; border: 0.5px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 12px;
+    position: relative; overflow: hidden;
+  }
+  .review-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; color: rgba(26,111,181,0.08);
+    position: absolute; top: -8px; left: 12px;
+    line-height: 1; pointer-events: none;
+  }
+  .review-stars-small { color: #F59E0B; font-size: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 14px; color: var(--text-muted); line-height: 1.65; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 8px; }
+  .review-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600; flex-shrink: 0;
+  }
+  .review-name { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .review-via { font-size: 11px; color: var(--text-muted); }
+
+  /* ── MAP SECTION ── */
+  .map-cta-box {
+    background: var(--navy); border-radius: 16px;
+    padding: 3rem 2.5rem; display: flex;
+    align-items: center; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .map-cta-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700; color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .map-cta-box p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 400px; }
+  .map-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 2.5rem 2rem;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand-name { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 0.5rem; }
+  .footer-brand-desc { color: rgba(255,255,255,0.5); font-size: 13.5px; line-height: 1.65; margin-bottom: 1rem; }
+  .footer-col-title { color: rgba(255,255,255,0.5); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-link { display: block; color: rgba(255,255,255,0.65); font-size: 13.5px; margin-bottom: 8px; text-decoration: none; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 0.5px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { color: rgba(255,255,255,0.35); font-size: 12px; }
+  .footer-badge { display: flex; align-items: center; gap: 8px; }
+  .google-stars { color: #F59E0B; font-size: 14px; }
+  .footer-badge-text { color: rgba(255,255,255,0.45); font-size: 12px; }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--navy); border: 0.5px solid rgba(255,255,255,0.15);
+    color: #fff; font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; opacity: 0; transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .back-top.visible { opacity: 1; }
+  .back-top:hover { background: var(--blue); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(0,0,0,0.55); align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff; border-radius: 16px;
+    padding: 2rem; max-width: 480px; width: 100%;
+    position: relative; max-height: 90vh; overflow-y: auto;
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 22px;
+    color: var(--text-muted); cursor: pointer;
+  }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .modal-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .modal-field label { font-size: 13px; font-weight: 600; color: var(--navy); display: block; margin-bottom: 5px; }
+  .modal-field input, .modal-field select {
+    width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif;
+    margin-bottom: 1rem; outline: none; color: var(--text);
+  }
+  .modal-field input:focus, .modal-field select:focus { border-color: var(--blue); }
+  .modal-submit {
+    width: 100%; padding: 13px; background: var(--navy); color: #fff;
+    border: none; border-radius: 8px; font-size: 15px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s;
+  }
+  .modal-submit:hover { background: var(--blue); }
+  .modal-success { text-align: center; padding: 1rem 0; display: none; }
+  .modal-success i { font-size: 48px; color: #22C55E; display: block; margin-bottom: 0.5rem; }
+
+  @media (max-width: 768px) {
+    .stats-strip { grid-template-columns: repeat(3,1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    nav .nav-links { display: none; }
+    .hero { padding: 3.5rem 1.5rem 4rem; }
+    .section { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <span class="tag-pill">Official Guide</span>
+  <p>
+    <strong>Brocklebank Retail Park</strong>
+    <span class="divider"> · </span>
+    SE7 Greenwich, London
+    <span class="divider"> · </span>
+    Store directory · Opening hours · Visitor reviews · Directions
+  </p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon"><i class="ti ti-building-store"></i></div>
+    <div>
+      <span class="nav-logo-text">Brocklebank</span>
+      <span class="nav-logo-sub">Retail Park · SE7</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#stores">Stores</a>
+    <a class="nav-link" href="#amenities">Amenities</a>
+    <a class="nav-link" href="#visit">Plan a visit</a>
+    <a class="nav-link" href="#reviews">Reviews</a>
+    <a class="nav-cta" href="https://maps.google.com/?q=Brocklebank+Retail+Park+London+SE7+7FR" target="_blank">
+      <i class="ti ti-map-pin"></i> Directions
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><i class="ti ti-map-pin"></i> 1–5 Brocklebank Rd, London SE7 7FR</div>
+  <h1>Greenwich's<br><span>Favourite</span> Retail Park</h1>
+  <p class="hero-desc">A modernised retail destination with a great variety of shops, supermarkets, car services, and free parking — right on your doorstep.</p>
+  <div class="hero-meta">
+    <span class="hero-stars">★★★★☆</span>
+    <span class="hero-rating">4.3</span>
+    <span class="hero-reviews">· 2,008 Google reviews</span>
+    <span class="hero-sep">|</span>
+    <span class="status-closed"><span class="pulse"></span> Currently closed · Opens 9 am</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-hero-primary" href="https://maps.google.com/?q=Brocklebank+Retail+Park+London+SE7+7FR" target="_blank"><i class="ti ti-map-2"></i> Get directions</a>
+    <button class="btn-hero-ghost" onclick="document.getElementById('stores').scrollIntoView({behavior:'smooth'})"><i class="ti ti-layout-grid"></i> Browse stores</button>
+    <button class="btn-hero-ghost" onclick="document.getElementById('newsletterModal').classList.add('open')"><i class="ti ti-bell"></i> Get updates</button>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <i class="ti ti-star stat-icon"></i>
+    <div class="stat-val">4.3</div>
+    <div class="stat-label">Google rating</div>
+  </div>
+  <div class="stat-item">
+    <i class="ti ti-messages stat-icon"></i>
+    <div class="stat-val">2,008</div>
+    <div class="stat-label">Visitor reviews</div>
+  </div>
+  <div class="stat-item">
+    <i class="ti ti-car stat-icon"></i>
+    <div class="stat-val">Free</div>
+    <div class="stat-label">On-site parking</div>
+  </div>
+  <div class="stat-item">
+    <i class="ti ti-clock stat-icon"></i>
+    <div class="stat-val">20–45</div>
+    <div class="stat-label">Min avg visit</div>
+  </div>
+  <div class="stat-item">
+    <i class="ti ti-building-store stat-icon"></i>
+    <div class="stat-val">30+</div>
+    <div class="stat-label">Stores &amp; services</div>
+  </div>
+</div>
+
+<!-- STORES SECTION -->
+<section class="section" id="stores">
+  <div class="section-eyebrow">Store directory</div>
+  <h2 class="section-title">Every shop, all in one place</h2>
+  <p class="section-sub">Browse by category — from fashion and food to garages and financial services.</p>
+
+  <div class="search-wrap">
+    <i class="ti ti-search search-icon"></i>
+    <input type="text" id="storeSearch" placeholder="Search stores or categories…" oninput="filterStores(this.value)">
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="setFilter('all',this)">All stores</button>
+    <button class="filter-tab" onclick="setFilter('fashion',this)">Fashion</button>
+    <button class="filter-tab" onclick="setFilter('food',this)">Food &amp; drink</button>
+    <button class="filter-tab" onclick="setFilter('home',this)">Home &amp; living</button>
+    <button class="filter-tab" onclick="setFilter('auto',this)">Auto</button>
+    <button class="filter-tab" onclick="setFilter('services',this)">Services</button>
+  </div>
+
+  <div class="stores-grid" id="storesGrid">
+    <div class="store-card" data-cat="fashion">
+      <div class="store-icon-wrap" style="background:#EFF6FF;"><i class="ti ti-shirt" style="color:#1D4ED8;font-size:26px;"></i></div>
+      <div class="store-name">Fashion &amp; Clothing</div>
+      <div class="store-cat">Apparel &amp; accessories</div>
+      <span class="store-count">8+ stores</span>
+    </div>
+    <div class="store-card" data-cat="food">
+      <div class="store-icon-wrap" style="background:#F0FDF4;"><i class="ti ti-shopping-cart" style="color:#166534;font-size:26px;"></i></div>
+      <div class="store-name">Supermarkets</div>
+      <div class="store-cat">Grocery &amp; fresh food</div>
+      <span class="store-count">3+ stores</span>
+    </div>
+    <div class="store-card" data-cat="auto">
+      <div class="store-icon-wrap" style="background:#FFF7ED;"><i class="ti ti-car" style="color:#C2410C;font-size:26px;"></i></div>
+      <div class="store-name">Car &amp; Auto</div>
+      <div class="store-cat">Garages, parts &amp; tyres</div>
+      <span class="store-count">4+ stores</span>
+    </div>
+    <div class="store-card" data-cat="home">
+      <div class="store-icon-wrap" style="background:#FDF4FF;"><i class="ti ti-home-2" style="color:#7E22CE;font-size:26px;"></i></div>
+      <div class="store-name">Home &amp; Living</div>
+      <div class="store-cat">Furniture &amp; décor</div>
+      <span class="store-count">3+ stores</span>
+    </div>
+    <div class="store-card" data-cat="services">
+      <div class="store-icon-wrap" style="background:#F0F9FF;"><i class="ti ti-device-mobile" style="color:#0369A1;font-size:26px;"></i></div>
+      <div class="store-name">Electronics</div>
+      <div class="store-cat">Tech, phones &amp; gadgets</div>
+      <span class="store-count">2+ stores</span>
+    </div>
+    <div class="store-card" data-cat="food">
+      <div class="store-icon-wrap" style="background:#FFF1F2;"><i class="ti ti-coffee" style="color:#9F1239;font-size:26px;"></i></div>
+      <div class="store-name">Cafés &amp; Eateries</div>
+      <div class="store-cat">Coffee, lunch &amp; snacks</div>
+      <span class="store-count">5+ venues</span>
+    </div>
+    <div class="store-card" data-cat="services">
+      <div class="store-icon-wrap" style="background:#ECFDF5;"><i class="ti ti-heart-rate-monitor" style="color:#065F46;font-size:26px;"></i></div>
+      <div class="store-name">Health &amp; Beauty</div>
+      <div class="store-cat">Pharmacy, hair &amp; beauty</div>
+      <span class="store-count">4+ stores</span>
+    </div>
+    <div class="store-card" data-cat="services">
+      <div class="store-icon-wrap" style="background:#F8FAFC;"><i class="ti ti-cash" style="color:#475569;font-size:26px;"></i></div>
+      <div class="store-name">Financial Services</div>
+      <div class="store-cat">Banks, insurance &amp; post</div>
+      <span class="store-count">2+ services</span>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES SECTION -->
+<section class="section section-alt" id="amenities">
+  <div class="section-eyebrow">Amenities</div>
+  <h2 class="section-title">Everything you need nearby</h2>
+  <p class="section-sub">Brocklebank Retail Park is built for convenience — well-connected, accessible, and family-friendly.</p>
+  <div class="amenities-grid">
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-parking"></i></div>
+      <div>
+        <div class="amenity-title">Free parking</div>
+        <div class="amenity-desc">Ample free spaces throughout the park — no ticket machines, no time limits during opening hours.</div>
+      </div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-accessible"></i></div>
+      <div>
+        <div class="amenity-title">Accessible access</div>
+        <div class="amenity-desc">Step-free routes, dedicated accessible parking bays, and level access throughout.</div>
+      </div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-bus"></i></div>
+      <div>
+        <div class="amenity-title">Great transport links</div>
+        <div class="amenity-desc">Well-served by TfL buses with nearby rail and DLR connections into central London.</div>
+      </div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-baby-carriage"></i></div>
+      <div>
+        <div class="amenity-title">Family friendly</div>
+        <div class="amenity-desc">Parent and child parking bays, pram-friendly paths, and baby-change facilities on site.</div>
+      </div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-toilet-paper"></i></div>
+      <div>
+        <div class="amenity-title">Public toilets</div>
+        <div class="amenity-desc">Clean, accessible toilet facilities available during all park opening hours.</div>
+      </div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon-wrap"><i class="ti ti-wifi"></i></div>
+      <div>
+        <div class="amenity-title">Free Wi-Fi</div>
+        <div class="amenity-desc">Complimentary high-speed Wi-Fi available across the retail park — no registration needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN A VISIT SECTION -->
+<section class="section" id="visit">
+  <div class="section-eyebrow">Plan a visit</div>
+  <h2 class="section-title">Opening hours &amp; busy times</h2>
+  <p class="section-sub">Know when to come for a relaxed experience. Thursday afternoons tend to be the quietest for a quick weekday shop.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;flex-wrap:wrap;">
+    <div>
+      <h3 style="font-size:17px;font-weight:600;color:var(--navy);margin-bottom:1.2rem;">Weekly opening hours</h3>
+      <table class="hours-table">
+        <tr><td>Monday</td><td>9:00 am – 8:00 pm</td></tr>
+        <tr><td>Tuesday</td><td>9:00 am – 8:00 pm</td></tr>
+        <tr><td>Wednesday</td><td>9:00 am – 8:00 pm</td></tr>
+        <tr class="today"><td>Thursday <span class="today-badge">Today</span></td><td>9:00 am – 8:00 pm</td></tr>
+        <tr><td>Friday</td><td>9:00 am – 9:00 pm</td></tr>
+        <tr><td>Saturday</td><td>9:00 am – 9:00 pm</td></tr>
+        <tr><td>Sunday</td><td>10:00 am – 6:00 pm</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:10px;">Individual store hours may vary slightly. Always check with the store directly.</p>
+    </div>
+    <div>
+      <h3 style="font-size:17px;font-weight:600;color:var(--navy);margin-bottom:1.2rem;">Typical busy times <span style="font-size:13px;font-weight:400;color:var(--text-muted);">— Thursday</span></h3>
+      <div id="busyChartWrap"></div>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:12px;">Average visit duration: <strong>20 – 45 minutes</strong> · Quietest window: 9–11 am</p>
+    </div>
+  </div>
+
+  <!-- MAP CTA -->
+  <div style="margin-top:3rem;">
+    <div class="map-cta-box">
+      <div>
+        <h2>Find us in Greenwich</h2>
+        <p>1–5 Brocklebank Rd, London SE7 7FR. Just minutes from the O2, with easy bus and DLR connections from central London.</p>
+      </div>
+      <div class="map-btns">
+        <a class="btn-hero-primary" href="https://maps.google.com/?q=Brocklebank+Retail+Park+London+SE7+7FR" target="_blank"><i class="ti ti-map-2"></i> Open in Google Maps</a>
+        <a class="btn-hero-ghost" href="https://tfl.gov.uk" target="_blank" style="font-size:14px;"><i class="ti ti-bus"></i> TfL journey planner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="section section-cream" id="reviews">
+  <div class="section-eyebrow">Visitor reviews</div>
+  <h2 class="section-title">What shoppers say</h2>
+  <p class="section-sub">Trusted by thousands of local shoppers. Here's what the community thinks about Brocklebank.</p>
+
+  <div class="reviews-header">
+    <div class="review-score-big">
+      <div class="score-number">4.3</div>
+      <div class="score-stars">★★★★☆</div>
+      <div class="score-count">Based on 2,008 reviews</div>
+      <a href="https://www.google.com/maps/place/Brocklebank+Retail+Park" target="_blank" style="display:inline-block;margin-top:10px;font-size:13px;color:var(--blue);font-weight:500;text-decoration:none;">Rate on Google →</a>
+    </div>
+    <div class="rating-bars">
+      <div class="rating-bar-row"><span class="rb-label">5 <i class="ti ti-star"></i></span><div class="rb-track"><div class="rb-fill" style="width:62%"></div></div><span class="rb-pct">62%</span></div>
+      <div class="rating-bar-row"><span class="rb-label">4 <i class="ti ti-star"></i></span><div class="rb-track"><div class="rb-fill" style="width:22%"></div></div><span class="rb-pct">22%</span></div>
+      <div class="rating-bar-row"><span class="rb-label">3 <i class="ti ti-star"></i></span><div class="rb-track"><div class="rb-fill" style="width:9%;background:#F59E0B99"></div></div><span class="rb-pct">9%</span></div>
+      <div class="rating-bar-row"><span class="rb-label">2 <i class="ti ti-star"></i></span><div class="rb-track"><div class="rb-fill" style="width:4%;background:#F59E0B55"></div></div><span class="rb-pct">4%</span></div>
+      <div class="rating-bar-row"><span class="rb-label">1 <i class="ti ti-star"></i></span><div class="rb-track"><div class="rb-fill" style="width:3%;background:#F59E0B33"></div></div><span class="rb-pct">3%</span></div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars-small">★★★★★</div>
+      <p class="review-text">"My go-to shopping retail park. Has everything there. Free parking and a great variety of shops and stores. Love it. Definitely recommend to anyone."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#EFF6FF;color:#1D4ED8;">JM</div>
+        <div><div class="review-name">James M.</div><div class="review-via">Google review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars-small">★★★★☆</div>
+      <p class="review-text">"Useful for quick shopping, not so much for leisurely window browsing. A fair selection of stores and reasonable transport links."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#F0FDF4;color:#166534;">CF</div>
+        <div><div class="review-name">C. Ferguson</div><div class="review-via">Google review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars-small">★★★★☆</div>
+      <p class="review-text">"Parking is available everywhere. Lots of clothes shops, supermarkets and car garages. A very convenient one-stop destination."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#FFF7ED;color:#C2410C;">SK</div>
+        <div><div class="review-name">Sara K.</div><div class="review-via">Google review</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:1.5rem;">
+    <a class="btn-hero-primary" href="https://www.google.com/maps/place/Brocklebank+Retail+Park" target="_blank" style="font-size:14px;padding:11px 22px;"><i class="ti ti-brand-google"></i> All reviews on Google</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER MODAL -->
+<div class="modal-overlay" id="newsletterModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('newsletterModal').classList.remove('open')"><i class="ti ti-x"></i></button>
+    <div class="modal-title">Stay in the loop</div>
+    <p class="modal-sub">Get notified about new store openings, special events, and exclusive offers at Brocklebank Retail Park.</p>
+    <div id="newsletterForm">
+      <div class="modal-field"><label>Your name</label><input type="text" id="subName" placeholder="e.g. Sarah Jones"></div>
+      <div class="modal-field"><label>Email address</label><input type="email" id="subEmail" placeholder="you@email.com"></div>
+      <div class="modal-field">
+        <label>What interests you most?</label>
+        <select id="subInterest">
+          <option>New store openings</option>
+          <option>Special offers &amp; discounts</option>
+          <option>Events &amp; activities</option>
+          <option>All updates</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="submitNewsletter()">Subscribe for updates</button>
+    </div>
+    <div class="modal-success" id="newsletterSuccess">
+      <i class="ti ti-circle-check"></i>
+      <div style="font-size:18px;font-weight:600;color:var(--navy);margin-bottom:0.4rem;">You're subscribed!</div>
+      <p style="font-size:14px;color:var(--text-muted);">We'll keep you updated on everything happening at Brocklebank.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Brocklebank Retail Park</div>
+      <p class="footer-brand-desc">A modernised retail destination in the heart of Greenwich, SE7. Serving the local community with a great mix of shops, services, and free parking since opening.</p>
+      <div class="footer-badge">
+        <span class="google-stars">★★★★☆</span>
+        <span class="footer-badge-text">4.3 on Google · 2,008 reviews</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick links</div>
+      <a class="footer-link" href="#stores">Store directory</a>
+      <a class="footer-link" href="#amenities">Amenities</a>
+      <a class="footer-link" href="#visit">Opening hours</a>
+      <a class="footer-link" href="#reviews">Visitor reviews</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Useful links</div>
+      <a class="footer-link" href="https://maps.google.com/?q=Brocklebank+Retail+Park+London+SE7+7FR" target="_blank">Google Maps directions</a>
+      <a class="footer-link" href="https://tfl.gov.uk" target="_blank">TfL journey planner</a>
+      <a class="footer-link" href="https://www.visitgreenwich.org.uk/information/product-catch-all/brocklebank-retail-park-p1497011" target="_blank">Visit Greenwich listing</a>
+      <a class="footer-link" href="https://www.google.com/maps/place/Brocklebank+Retail+Park" target="_blank">Leave a Google review</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Brocklebank Retail Park · 1–5 Brocklebank Rd, London SE7 7FR, United Kingdom</span>
+    <span class="footer-copy">Built with care for the Greenwich community</span>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <i class="ti ti-arrow-up"></i>
+</button>
+
+<script>
+// Busy chart
+(function(){
+  const wrap = document.getElementById('busyChartWrap');
+  if(!wrap) return;
+  const data = [
+    {label:'9am',val:18},{label:'10am',val:35},{label:'11am',val:52},
+    {label:'12pm',val:68},{label:'1pm',val:72},{label:'2pm',val:65},
+    {label:'3pm',val:55},{label:'4pm',val:78},{label:'5pm',val:88},
+    {label:'6pm',val:62},{label:'7pm',val:38}
+  ];
+  let html = '<div class="busy-chart">';
+  data.forEach(d => {
+    const h = Math.round((d.val/100)*90);
+    const color = d.val>75 ? '#E24B4A' : d.val>55 ? '#F59E0B' : '#1A6FB5';
+    html += `<div class="busy-col"><div class="busy-bar" style="height:${h}px;background:${color};opacity:0.85;" title="${d.label}: ${d.val>75?'Very busy':d.val>55?'Fairly busy':'Quiet'}"></div><span class="busy-day-label">${d.label}</span></div>`;
+  });
+  html += '</div>';
+  html += '<div style="display:flex;gap:16px;margin-top:10px;">';
+  html += '<span style="font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#1A6FB5;display:inline-block;"></span>Quiet</span>';
+  html += '<span style="font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#F59E0B;display:inline-block;"></span>Fairly busy</span>';
+  html += '<span style="font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#E24B4A;display:inline-block;"></span>Very busy</span>';
+  html += '</div>';
+  wrap.innerHTML = html;
+})();
+
+// Store filter
+function setFilter(cat, el) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#storesGrid .store-card').forEach(card => {
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+function filterStores(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll('#storesGrid .store-card').forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// Newsletter
+function submitNewsletter() {
+  const name = document.getElementById('subName').value.trim();
+  const email = document.getElementById('subEmail').value.trim();
+  if(!name || !email) { alert('Please fill in your name and email.'); return; }
+  document.getElementById('newsletterForm').style.display = 'none';
+  document.getElementById('newsletterSuccess').style.display = 'block';
+}
+
+// Back to top
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backTop');
+  if(btn) btn.classList.toggle('visible', window.scrollY > 300);
+});
+</script>
+</body>
+</html>
